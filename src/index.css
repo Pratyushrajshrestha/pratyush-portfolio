@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ----- Design tokens ----- */
+@theme {
+  --color-bg: #0F0F2D;                 /* page background (dark navy) */
+  --color-surface: #12122b;            /* cards */
+  --color-surface-2: #0c0c23;          /* deeper card */
+  --color-border: 255 255 255 / 0.08;  /* white/8% */
+  --color-text: 228 228 241;           /* near-zinc-200 */
+  --color-muted: 161 168 195;          /* bluish gray */
+  --color-accent: #18e0cf;             /* cyan */
+  --color-accent-2: #9b5cff;           /* purple */
+}
+
+/* Use Sora everywhere */
+@layer base {
+  body {
+    font-family: "Sora", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+      Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  }
+}
+
+.container{
+  margin-inline:auto;
+  padding-inline:clamp(1rem,3vw,1.5rem);
+  max-width:1200px; /* was 1080 */
+}
+
+
+/* Softer/glow that doesn’t fill the whole screen */
+@layer base {
+  :root { color-scheme: dark; }
+  html, body, #root { height: 100%; }
+  html { scroll-behavior: smooth;}
+
+  body {
+    background-color: var(--color-bg);
+    color: rgb(var(--color-text));
+    background-image:
+      radial-gradient(420px 280px at 75% 22%, rgba(24,224,207,0.12), transparent 60%),
+      radial-gradient(520px 360px at 18% 58%, rgba(155,92,255,0.10), transparent 65%);
+    background-repeat: no-repeat;
+  }
+}
+
+/* ----- Global dark base ----- */
+@layer base {
+  :root { color-scheme: dark; }
+  html, body, #root { height: 100%; }
+
+  body {
+    background-color: var(--color-bg);
+    color: rgb(var(--color-text));
+    /* subtle background glow like your design */
+    background-image:
+      radial-gradient(600px 400px at 75% 25%, rgba(24,224,207,0.15), transparent 60%),
+      radial-gradient(700px 500px at 20% 60%, rgba(155,92,255,0.12), transparent 65%);
+    background-repeat: no-repeat;
+  }
+}
+
+/* ---- subtle shimmer for gradient text / rings ---- */
+@keyframes shimmer { 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
+.gradient-shimmer { background-size:200% 200%; animation: shimmer 3.5s linear infinite; }
+
+@keyframes floaty { 0%{transform:translateY(0)} 50%{transform:translateY(-8px)} 100%{transform:translateY(0)} }
+.floaty { animation: floaty 6s ease-in-out infinite; }
+
+.card-lift { transition: transform .25s ease, box-shadow .25s ease; }
+.card-lift:hover { transform: translateY(-4px); }
+
+
