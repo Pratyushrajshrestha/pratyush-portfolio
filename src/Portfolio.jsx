@@ -225,7 +225,7 @@ export default function Portfolio() {
   // Skills buckets
   const SKILLS = {
     "🎨 Frontend Development": [
-      "HTML555",
+      "HTML5",
       "Canva / Figma",
       "Tailwind CSS",
       "JavaScript",
