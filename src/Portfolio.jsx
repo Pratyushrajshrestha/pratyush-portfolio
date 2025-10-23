@@ -215,11 +215,11 @@ export default function Portfolio() {
     Instagram: "https://www.instagram.com/pratyush_shr_/",
   };
 
-  // Hero metrics (edit freely)
+  // Hero metrics 
   const STATS = [
     { k: "2+", label: "Years Experience" },
     { k: "5+", label: "Projects Completed" },
-    { k: "100%", label: "Client Satisfaction" },
+    // { k: "100%", label: "Client Satisfaction" },
   ];
 
   // Skills buckets
